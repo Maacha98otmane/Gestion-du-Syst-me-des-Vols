@@ -1,0 +1,295 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <!-- META DATA -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- TITLE OF SITE -->
+    <title>Travel</title>
+    <!--bootstrap.min.css-->
+    <!--style.css-->
+    <link rel="stylesheet" href="http://localhost:3030/assest/css/reserve.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+
+
+
+</head>
+
+
+
+
+
+
+<body>
+    <div class="container">
+        <div class="mt-5">
+            <% for(var i=0; i < data.length; i++) { %>
+
+            <div class="d-style btn btn-brc-tp border-2 bgc-white btn-outline-blue btn-h-outline-blue btn-a-outline-blue w-100 my-2 py-3 shadow-sm"
+                id="<%= i%>">
+                <!-- Basic Plan -->
+                <div class="row align-items-center">
+                    <div class="col-12 align-items-center">
+                        <% switch (data[i].company_name) {
+                        case "Air Maroc": %>
+                        <img style="width: 10%;height: 8%;" src="http://localhost:3030/assest/img/airmaroc.png" alt="">
+                        <% break;
+                        case "Qatar Fondation": %>
+                        <img style="width: 10%;height: 8%;" src="http://localhost:3030/assest/img/Qatar.png" alt="">
+                        <% break;
+                        case "Turkish Airline": %>
+                        <img style="width: 10%;height: 8%;" src="http://localhost:3030/assest/img/Turkia.png" alt="">
+                        <% break;
+                        case "Usa": %>
+                        <img style="width: 10%;height: 8%;" src="http://localhost:3030/assest/img/USA.png" alt="">
+                        <% break;
+                        case "Bwin": %>
+                        <img style="width: 10%;height: 8%;" src="http://localhost:3030/assest/img/Bwin-Logo.png" alt="">
+                        <% break;
+                        case "R.A.M": %>
+                        <img style="width: 10%;height: 8%;" src="http://localhost:3030/assest/img/airmaroc.png" alt="">
+                        <% break;
+                        case "Fly Emirates": %>
+                        <img style="width: 10%;height: 8%;" src="http://localhost:3030/assest/img/Fly.png" alt="">
+                        <% break;
+                        case "Russia Airline": %>
+                        <img style="width: 10%;height: 8%;" src="http://localhost:3030/assest/img/russia.png" alt="">
+                        <% break;
+                        case "Tunisia Air": %>
+                        <img style="width: 10%;height: 8%;" src="http://localhost:3030/assest/img/tunisia.png" alt="">
+                        <% break;
+                        default:
+                        break; } %>
+
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <h4 class="pt-3 text-170 text-600 text-primary-d1 letter-spacing">
+                            <%= data[i].Depart%> to <%= data[i].Arrived%>
+                        </h4>
+
+                        <div class="text-secondary-d1 text-120">
+                            <span class="ml-n15 align-text-bottom">Dhs</span><span
+                                class="text-180"><%= data[i].prix%></span> / Person
+                        </div>
+                    </div>
+
+                    <ul class="list-unstyled mb-0 col-12 col-md-4 text-dark-l1 text-90 text-left my-4 my-md-0">
+                        <li>
+                            <i class="fa fa-plane text-success-m2 text-110 mr-2 mt-1"></i>
+                            <span>
+                                <span class="text-110"><%= data[i].company_name%></span>
+                            </span>
+                        </li>
+                        <% if (data[i].Escale == 0) { %>
+                        <li class="mt-25">
+                            <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                            <span class="text-110">
+                                Vol Direct
+                            </span>
+                        </li>
+
+                        <li class="mt-25">
+                            <i class="fa fa-times text-danger-m3 text-110 mr-25 mt-1"></i>
+                            <span class="text-110">
+                                Escale
+                            </span>
+                        </li>
+                        <li class="mt-25">
+                            <i class="fa fa-plane-departure  text-110 mr-25 mt-1"></i>
+                            <span class="text-110">
+                                <%= data[i].avd%>
+                            </span>
+                        </li>
+                        <li class="mt-25">
+                            <i class="fa fa-plane-arrival  text-110 mr-25 mt-1"></i>
+                            <span class="text-110">
+                                <%= data[i].ard%>
+                            </span>
+                        </li>
+                        <%} else { %>
+                        <li class="mt-25">
+                            <i class="fa fa-times text-danger-m3 text-110 mr-25 mt-1"></i>
+                            <span class="text-110">
+                                Vol Direct
+                            </span>
+                        </li>
+
+                        <li class="mt-25">
+                            <i class="fa fa-check text-success-m2 text-110 mr-2 mt-1"></i>
+                            <span class="text-110">
+                                Escale
+                            </span>
+                        </li>
+                        <li class="mt-25">
+                            <i class="fa fa-plane-departure text-110 mr-25 mt-1"></i>
+                            <span class="text-110">
+                                <%= data[i].avd%>
+                            </span>
+                        </li>
+                        <li class="mt-25">
+                            <i class="fa fa-plane-arrival text-110 mr-25 mt-1"></i>
+                            <span class="text-110">
+                                <%= data[i].ard%>
+                            </span>
+                        </li>
+                        <% } %>
+
+                    </ul>
+
+                    <div class="col-12 col-md-4 text-center">
+                        <button type="button" class="f-n-hover btn btn-info btn-raised px-4 py-25 w-75 text-600"
+                            data-toggle="modal" data-target="#exampleModal<%= data[i].id%>">
+                            Reserve
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal fade" id="exampleModal<%= data[i].id%>" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New Reservation</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div id="accordion">
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">
+                                                Vol Information
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                        data-parent="#accordion">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label for="to" class="col-form-label">From:</label>
+                                                    <input type="text" class="form-control" value="<%= data[i].Depart%>"
+                                                        name="from" disabled>
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label for="to" class="col-form-label">To:</label>
+                                                    <input type="text" class="form-control"
+                                                        value="<%= data[i].Arrived%>" name="to" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label for="depart" class="col-form-label">Depart:</label>
+                                                    <input type="text" class="form-control" value="<%= data[i].avd%>"
+                                                        name="depart" disabled>
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label for="arrival" class="col-form-label">Arrival:</label>
+                                                    <input type="text" class="form-control" value="<%= data[i].ard%>"
+                                                        name="arrival" disabled>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label for="depart" class="col-form-label">Vol direct:</label>
+                                                    <input type="text" class="form-control" value="<%= data[i].avd%>"
+                                                        name="depart" disabled>
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label for="arrival" class="col-form-label">Prix:</label>
+                                                    <input type="text" class="form-control" value="<%= data[i].prix%>"
+                                                        name="arrival" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card mt-2">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" data-toggle="collapse"
+                                                data-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                Client Info
+                                            </button>
+                                        </h5>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                        data-parent="#accordion">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label for="Nom" class="col-form-label">Nom:</label>
+                                                    <input type="text" class="form-control" name="nom">
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label for="Prenom" class="col-form-label">Prenom:</label>
+                                                    <input type="text" class="form-control" name="Prenom">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-6">
+                                                    <label for="phone" class="col-form-label">Telephone:</label>
+                                                    <input type="number" class="form-control" name="phone">
+                                                </div>
+                                                <div class="form-group col-6">
+                                                    <label for="arremailival" class="col-form-label">Email:</label>
+                                                    <input type="email" class="form-control" name="email">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-12">
+                                                    <label for="number" class="col-form-label">Place:</label>
+                                                    <input type="number" class="form-control" name="place">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Reserver</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <% } %>
+
+        </div>
+    </div>
+    <!-- <div class="m-4 text-center" style="margin-top: 15%!important;">
+        <div class="alert alert-info alert-dismissible fade show">
+            <h4 class="alert-heading"><i class="bi-exclamation-octagon-fill"></i> Oops! Something went wrong.</h4>
+            <p>Please enter a valid value in all the required fields before proceeding. If you need any help just place
+                the mouse pointer above info icon next to the form field.</p>
+            <hr>
+            <p class="mb-0">Once you have filled all the details, click on the 'Next' button to continue.</p>
+            <button type="button" class="btn-close btn-warning mt-2" data-bs-dismiss="alert"><a
+                    href="http://localhost:3030">Back at Home</a></button>
+        </div>
+    </div> -->
+
+    <script src="http://localhost:3030/assest/js/script.js"></script>
+
+</body>
+
+</html>

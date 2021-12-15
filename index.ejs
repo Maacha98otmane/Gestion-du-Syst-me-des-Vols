@@ -1,0 +1,180 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <!-- META DATA -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <!-- TITLE OF SITE -->
+    <title>Travel</title>
+    <!--bootstrap.min.css-->
+    <!--style.css-->
+    <link rel="stylesheet" href="http://localhost:3030/assest/css/bootstrap.css">
+    <link rel="stylesheet" href="http://localhost:3030/assest/css/style.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <header class="top-area">
+        <div class="header-area border-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="logo">
+                            <a href="index.html">
+                                <span>Safi Air</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="main-menu">
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>
+                                        <button class="book-btn">book now
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div class="container mt-5 ">
+        <div role="tabpanel" class="tab-pane fade in shadow-lg p-3 mb-5 bg-white rounded" id="flights">
+            <form action="http://localhost:3030/reserve" method="POST">
+
+                <div class="tab-para" style=" margin-top: 100px;">
+                    <div class="trip-circle">
+                        <div class="single-trip-circle">
+                            <input type="radio" id="radio01" name="radio" />
+                            <label for="radio01">
+                                <span class="round-boarder">
+                                    <span class="round-boarder1"></span>
+                                </span>round trip
+                            </label>
+                        </div>
+                        <div class="single-trip-circle">
+                            <input type="radio" id="radio02" name="radio" />
+                            <label for="radio02">
+                                <span class="round-boarder">
+                                    <span class="round-boarder1"></span>
+                                </span>on way
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="single-tab-select-box">
+
+                                <h2>from</h2>
+
+                                <div class="travel-select-icon">
+                                    <select name="depart" class="form-control ">
+                                        <option value="">choose your location</option>
+                                        <% for(var i=0; i < from.length; i++) { %>
+                                        <option value="<%= from[i].id %>"><%= from[i].name %></option>
+                                        <% } %>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="single-tab-select-box">
+                                <h2>departure</h2>
+                                <div class="travel-check-icon">
+                                    <input type="date" name="departure" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="single-tab-select-box">
+
+                                <h2>to</h2>
+
+                                <div class="travel-select-icon">
+                                    <select name="dest" class="form-control ">
+
+                                        <option value="default">enter your destination location
+                                        </option>
+                                        <% for(var i=0; i < to.length; i++) { %>
+                                        <option value="<%= to[i].id %>"><%= to[i].name %></option>
+                                        <% } %>
+
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="single-tab-select-box">
+                                <h2>return</h2>
+                                <div class="travel-check-icon">
+                                    <input type="date" name="return" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-lg-3 col-md-3 col-sm-4">
+                        <div class="single-tab-select-box">
+
+                            <h2>class</h2>
+                            <div class="travel-select-icon">
+                                <select class="form-control ">
+
+                                    <option value="default">enter class</option>
+
+                                    <option value="A">A</option>
+
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-1 col-sm-4" style="width: 25%;">
+                        <div class="single-tab-select-box">
+                            <h2>adults</h2>
+                            <div class="travel-select-icon">
+                                <select class="form-control ">
+                                    <option value="default">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div> -->
+                        <div class="clo-sm-5">
+                            <div class="about-btn pull-right">
+                                <button type="submit" class="about-view travel-btn">
+                                    search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="http://localhost:3030/assest/js/script.js"></script>
+
+</body>
+
+</html>
