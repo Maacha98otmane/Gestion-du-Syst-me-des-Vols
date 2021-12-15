@@ -165,108 +165,112 @@
                             </button>
                         </div>
                         <div class="modal-body">
+                            <form action="http://localhost:3030/booking" method="POST">
 
-                            <div id="accordion">
-                                <div class="card">
-                                    <div class="card-header" id="headingTwo">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseTwo" aria-expanded="false"
-                                                aria-controls="collapseTwo">
-                                                Vol Information
-                                            </button>
-                                        </h5>
+                                <div id="accordion">
+                                    <div class="card">
+                                        <div class="card-header" id="headingTwo">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link collapsed" data-toggle="collapse"
+                                                    data-target="#collapseTwo" aria-expanded="false"
+                                                    aria-controls="collapseTwo">
+                                                    Vol Information
+                                                </button>
+                                            </h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                            data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="form-group col-6">
+                                                        <label for="to" class="col-form-label">From:</label>
+                                                        <input type="text" class="form-control"
+                                                            value="<%= data[i].Depart%>" name="from" disabled>
+                                                    </div>
+                                                    <div class="form-group col-6">
+                                                        <label for="to" class="col-form-label">To:</label>
+                                                        <input type="text" class="form-control"
+                                                            value="<%= data[i].Arrived%>" name="to" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-6">
+                                                        <label for="depart" class="col-form-label">Depart:</label>
+                                                        <input type="text" class="form-control"
+                                                            value="<%= data[i].avd%>" name="depart" disabled>
+                                                    </div>
+                                                    <div class="form-group col-6">
+                                                        <label for="arrival" class="col-form-label">Arrival:</label>
+                                                        <input type="text" class="form-control"
+                                                            value="<%= data[i].ard%>" name="arrival" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group col-6">
+                                                        <label for="depart" class="col-form-label">Vol direct:</label>
+                                                        <input type="text" class="form-control"
+                                                            value="<%= data[i].avd%>" name="depart" disabled>
+                                                    </div>
+                                                    <div class="form-group col-6">
+                                                        <label for="arrival" class="col-form-label">Prix:</label>
+                                                        <input type="text" class="form-control"
+                                                            value="<%= data[i].prix%>" name="arrival" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                        data-parent="#accordion">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="to" class="col-form-label">From:</label>
-                                                    <input type="text" class="form-control" value="<%= data[i].Depart%>"
-                                                        name="from" disabled>
+                                    <div class="card mt-2">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link" data-toggle="collapse"
+                                                    data-target="#collapseOne" aria-expanded="true"
+                                                    aria-controls="collapseOne">
+                                                    Client Info
+                                                </button>
+                                            </h5>
+                                        </div>
+
+                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                            data-parent="#accordion">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <input type="hidden" name="idvol" value="<%= data[i].id%>">
+                                                    <div class="form-group col-6">
+                                                        <label for="Nom" class="col-form-label">Nom:</label>
+                                                        <input type="text" class="form-control" name="nom">
+                                                    </div>
+                                                    <div class="form-group col-6">
+                                                        <label for="Prenom" class="col-form-label">Prenom:</label>
+                                                        <input type="text" class="form-control" name="Prenom">
+                                                    </div>
                                                 </div>
-                                                <div class="form-group col-6">
-                                                    <label for="to" class="col-form-label">To:</label>
-                                                    <input type="text" class="form-control"
-                                                        value="<%= data[i].Arrived%>" name="to" disabled>
+                                                <div class="row">
+                                                    <div class="form-group col-6">
+                                                        <label for="phone" class="col-form-label">Telephone:</label>
+                                                        <input type="number" class="form-control" name="phone">
+                                                    </div>
+                                                    <div class="form-group col-6">
+                                                        <label for="arremailival" class="col-form-label">Email:</label>
+                                                        <input type="email" class="form-control" name="email">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="depart" class="col-form-label">Depart:</label>
-                                                    <input type="text" class="form-control" value="<%= data[i].avd%>"
-                                                        name="depart" disabled>
-                                                </div>
-                                                <div class="form-group col-6">
-                                                    <label for="arrival" class="col-form-label">Arrival:</label>
-                                                    <input type="text" class="form-control" value="<%= data[i].ard%>"
-                                                        name="arrival" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="depart" class="col-form-label">Vol direct:</label>
-                                                    <input type="text" class="form-control" value="<%= data[i].avd%>"
-                                                        name="depart" disabled>
-                                                </div>
-                                                <div class="form-group col-6">
-                                                    <label for="arrival" class="col-form-label">Prix:</label>
-                                                    <input type="text" class="form-control" value="<%= data[i].prix%>"
-                                                        name="arrival" disabled>
+                                                <div class="row">
+                                                    <div class="form-group col-12">
+                                                        <label for="number" class="col-form-label">Place:</label>
+                                                        <input type="number" class="form-control" name="place">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card mt-2">
-                                    <div class="card-header" id="headingOne">
-                                        <h5 class="mb-0">
-                                            <button class="btn btn-link" data-toggle="collapse"
-                                                data-target="#collapseOne" aria-expanded="true"
-                                                aria-controls="collapseOne">
-                                                Client Info
-                                            </button>
-                                        </h5>
-                                    </div>
-
-                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                        data-parent="#accordion">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="Nom" class="col-form-label">Nom:</label>
-                                                    <input type="text" class="form-control" name="nom">
-                                                </div>
-                                                <div class="form-group col-6">
-                                                    <label for="Prenom" class="col-form-label">Prenom:</label>
-                                                    <input type="text" class="form-control" name="Prenom">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="phone" class="col-form-label">Telephone:</label>
-                                                    <input type="number" class="form-control" name="phone">
-                                                </div>
-                                                <div class="form-group col-6">
-                                                    <label for="arremailival" class="col-form-label">Email:</label>
-                                                    <input type="email" class="form-control" name="email">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-12">
-                                                    <label for="number" class="col-form-label">Place:</label>
-                                                    <input type="number" class="form-control" name="place">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Reserver</button>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Reserver</button>
-                            </div>
+                            </form>
+
                         </div>
 
                     </div>

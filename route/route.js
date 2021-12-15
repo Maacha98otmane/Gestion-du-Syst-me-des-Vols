@@ -4,6 +4,7 @@ const PATH = require('path')
 const FORMIDABLE = require("formidable");
 let fetch = require('../db/fetch')
 let db = require('../db/db')
+let email = require('../db/email')
 
 
 module.exports = routes = {
@@ -27,11 +28,42 @@ module.exports = routes = {
                 fields: fields,
                 files: files
             }
-
             let getvol = await db.get(fetch.getvol(obj.fields.depart, obj.fields.dest, obj.fields.departure));
-            console.log(getvol)
             EJS.renderFile('./reserve.ejs', {
                 data: getvol,
+            }, function (err, str) {
+                res.writeHead(200, {
+                    'Content-Type': 'text/html;charset=utf-8'
+                });
+                if (err) {
+                    res.end();
+                } else {
+                    res.end(str);
+                }
+            });
+        })
+
+
+    },
+    booking: async function (data, res) {
+        let form = new FORMIDABLE.IncomingForm();
+        form.parse(data.dt, async function (err, fields, files) {
+            if (err) {
+                //handle errors
+                console.error(err);
+                return;
+            }
+            var obj;
+
+            obj = {
+                fields: fields,
+                files: files
+            }
+            await db.get(fetch.savereserv(obj.fields.idvol, obj.fields.nom, obj.fields.prenom, obj.fields.phone, obj.fields.email, obj.fields.place));
+            email.mail(obj.fields.email)
+
+            EJS.renderFile('./done.ejs', {
+                data: obj,
             }, function (err, str) {
                 res.writeHead(200, {
                     'Content-Type': 'text/html;charset=utf-8'

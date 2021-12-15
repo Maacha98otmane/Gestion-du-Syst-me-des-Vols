@@ -12,5 +12,9 @@ module.exports = queries = {
     and vol.vol_from = from_vl.id 
     and  vol.vol_to = to_vl.id
     and vol.departdate >'${date}'`,
+    savereserv: (idvol, nom, prenom, phone, email, place) => `
+    INSERT INTO reservation (id_vol, nom_client, prenon_client, phone, email, place) 
+    VALUES ('${idvol}', '${nom}', '${prenom}', '${phone}', '${email}', '${place}');
+    `,
 
 }
